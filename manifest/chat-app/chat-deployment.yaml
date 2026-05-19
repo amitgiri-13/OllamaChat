@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-chat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ollama-chat
+  template:
+    metadata:
+      labels:
+        app: ollama-chat
+    spec:
+      containers:
+        - name: ollama-chat
+          image: amitgiri13/ollama-chat:1.0.0
+          ports:
+            - containerPort: 8000
+          env:
+            - name: OLLAMA_URL
+              value: "http://ollama:11434"
