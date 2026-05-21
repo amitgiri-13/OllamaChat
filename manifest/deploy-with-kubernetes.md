@@ -23,7 +23,9 @@ manifest/
 │   ├── ollama-deployment.yaml
 │   ├── ollama-pvc.yaml
 │   └── ollama-service.yaml
-└── README.md
+└── resources
+    ├── limitrange.yaml
+    └── resourcequotas.yaml
 ```
 
 ---
@@ -40,6 +42,11 @@ Before deploying, ensure you have:
 ---
 
 ## Deployment Order
+
+**Optionally: Deploy limitRange and resourceQuotas**
+```bash
+kubectl apply -f resources/
+```
 
 You must deploy in the following order:
 
